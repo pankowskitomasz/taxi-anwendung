@@ -1,72 +1,67 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
-import AnwendungHeader from "./komponenten/anwendungHeader";
-import AnwendungFooter from "./komponenten/anwendungFooter";
 
-//Allgemeine
-import DatenschutzAnsicht from "./ansichten/allgemeine/datenschutzAnsicht";
-import EinloggenAnsicht from "./ansichten/allgemeine/einloggenAnsicht";
-import HomeAnsicht from "./ansichten/allgemeine/homeAnsicht";
-import KontaktAnsicht from "./ansichten/allgemeine/kontaktAnsicht";
-import NutzungsbedingungenAnsicht from "./ansichten/allgemeine/nutzungsbedingungenAnsicht";
-import RegistrierenAnsicht from "./ansichten/allgemeine/registrierenAnsicht";
-import WiederherstellenAnsicht from "./ansichten/allgemeine/wiederherstellenAnsicht";
-
-//Kunde
-import KundeDashboardAnsicht from "./ansichten/kunde/kundeDashboardAnsicht";
-import KundeMeineBestellungenAnsicht from "./ansichten/kunde/kundeMeineBestellungenAnsicht";
-import KundeMeineDatenAnsicht from "./ansichten/kunde/kundeMeineDatenAnsicht";
-import KundeMeineZahlungenAnsicht from "./ansichten/kunde/kundeMeineZahlungenAnsicht";
-import KundeProfilAnsicht from "./ansichten/kunde/kundeProfilAnsicht";
-
-//Mitarbeiter
-import MitarbeiterBestellungenAnsicht from "./ansichten/mitarbeiter/mitarbeiterBestellungenAnsicht";
-import MitarbeiterBestellungenDetailsAnsicht from "./ansichten/mitarbeiter/mitarbeiterBestellungenDetailsAnsicht";
-import MitarbeiterDashboardAnsicht from "./ansichten/mitarbeiter/mitarbeiterDashboardAnsicht";
-import MitarbeiterKundeDetailsAnsicht from "./ansichten/mitarbeiter/mitarbeiterKundeDetailsAnsicht";
-import MitarbeiterKundenAnsicht from "./ansichten/mitarbeiter/mitarbeiterKundenAnsicht";
-
-//verwaltung
-import VerwaltungBenutzerAktualisierenAnsicht from "./ansichten/verwaltung/verwaltungBenutzerAktualisierenAnsicht";
-import VerwaltungBenutzerDashboardAnsicht from "./ansichten/verwaltung/verwaltungBenutzerDashboardAnsicht";
-import VerwaltungBenutzerGeschichteAnsicht from "./ansichten/verwaltung/verwaltungBenutzerGeschichteAnsicht";
-import VerwaltungBenutzerNeuAnsicht from "./ansichten/verwaltung/verwaltungBenutzerNeuAnsicht";
-import VerwaltungBenutzerVerwaltenAnsicht from "./ansichten/verwaltung/verwaltungBenutzerVerwaltenAnsicht";
+import AccountView from './views/accountView';
+import AccountCreateView from './views/account/accountCreateView';
+import AccountProfileView from './views/account/accountProfileView';
+import AccountUpdate from './views/account/accountUpdateView';
+import DashboardView from './views/dashboardView';
+import DestinationView from './views/destinationView';
+import DestinationDetailsView from './views/destination/destinationDetailsView';
+import DestinationListView from './views/destination/destinationListView';
+import DestinationMapView from './views/destination/destinationMapView';
+import DestinationSearchView from './views/destination/destinationSearchView';
+import DriverView from './views/driverView';
+import DriverDetailsView from './views/driver/driverDetailsView';
+import DriverListView from './views/driver/driverListView';
+import PasswordUpdateView from './views/passwordUpdateView';
+import RestorePasswordView from './views/restorePasswordView';
+import RouteView from './views/routeView';
+import RouteDetailsView from './views/route/routeDetailsView';
+import RouteListView from './views/route/routeListView';
+import RouteMapView from './views/route/routeMapView';
+import RouteSearchView from './views/route/routeSearchView';
+import SignInView from './views/signInView';
+import SignUpView from './views/signUpView';
+import WelcomeView from './views/welcomeView';
 
 import './App.css';
+
 
 function App() {
   return (
     <Router>
-        <AnwendungHeader/>
         <Routes>
-          <Route path="/datenschutz" element={<DatenschutzAnsicht/>} />
-          <Route path="/einloggen" element={<EinloggenAnsicht/>} />
-          <Route exact path="/" element={<HomeAnsicht/>} />
-          <Route path="/kontakt" element={<KontaktAnsicht />} />
-          <Route path="/nutzungsbedingungen" element={<NutzungsbedingungenAnsicht />} />
-          <Route path="/registrieren" element={<RegistrierenAnsicht/>} />
-          <Route path="/wiederherstellen" element={<WiederherstellenAnsicht/>} />
-          
-          <Route exact path="/kunde" element={<KundeDashboardAnsicht/>}/>
-          <Route path="/kunde/bestellungen" element={<KundeMeineBestellungenAnsicht/>} />
-          <Route path="/kunde/daten" element={<KundeMeineDatenAnsicht/>} />
-          <Route path="/kunde/zahlungen" element={<KundeMeineZahlungenAnsicht/>} />
-          <Route path="/kunde/profil" element={<KundeProfilAnsicht/>} />
-          
-          <Route exact path="/mitarbeiter" element={<MitarbeiterDashboardAnsicht/>}/>
-          <Route path="/mitarbeiter/bestellungen" element={<MitarbeiterBestellungenAnsicht/>} />
-          <Route path="/mitarbeiter/bestellungen/:id" element={<MitarbeiterBestellungenDetailsAnsicht/>} />
-          <Route path="/mitarbeiter/kunden" element={<MitarbeiterKundenAnsicht/>} />
-          <Route path="/mitarbeiter/kunden/:id" element={<MitarbeiterKundeDetailsAnsicht/>} />
-          
-          <Route exact path="/benutzer" element={<VerwaltungBenutzerDashboardAnsicht/>}/>
-          <Route path="/benutzer/aktualisieren/:id" element={<VerwaltungBenutzerAktualisierenAnsicht/>} />
-          <Route path="/benutzer/geschichte/:id" element={<VerwaltungBenutzerGeschichteAnsicht/>} />
-          <Route path="/benutzer/neu" element={<VerwaltungBenutzerNeuAnsicht/>} />
-          <Route path="/benutzer/verwalten" element={<VerwaltungBenutzerVerwaltenAnsicht/>} />
+            <Route exact path="/" element={<WelcomeView/>}/>
+            <Route exact path="/account" element={<AccountView/>}/>
+            <Route exact path="/account/create" element={<AccountCreateView/>}/>
+            <Route exact path="/account/profile" element={<AccountProfileView/>}/>
+            <Route exact path="/account/update" element={<AccountUpdate/>}/>
+            <Route exact path="/dashboard" element={<DashboardView/>}/>
+            <Route exact path="/destination" element={<DestinationView/>}/>
+            <Route exact path="/destination/details/*">
+              <Route path=":id" element={<DestinationDetailsView/>}/> 
+            </Route>
+            <Route exact path="/destination/list" element={<DestinationListView/>}/>
+            <Route exact path="/destination/map" element={<DestinationMapView/>}/>
+            <Route exact path="/destination/search" element={<DestinationSearchView/>}/>
+            <Route exact path="/driver" element={<DriverView/>}/>
+            <Route exact path="/driver/details/*">
+              <Route path=":id" element={<DriverDetailsView/>}/>
+            </Route>
+            <Route exact path="/driver/list" element={<DriverListView/>}/>
+            <Route exact path="/update-password" element={<PasswordUpdateView/>}/>
+            <Route exact path="/restore-password" element={<RestorePasswordView/>}/>
+            <Route exact path="/route" element={<RouteView/>}/>
+            <Route exact path="/route/details/*">
+              <Route path=":id" element={<RouteDetailsView/>}/>
+            </Route>
+            <Route exact path="/route/list" element={<RouteListView/>}/>
+            <Route exact path="/route/map" element={<RouteMapView/>}/>
+            <Route exact path="/route/search" element={<RouteSearchView/>}/>
+            <Route exact path="/signin" element={<SignInView/>}/>
+            <Route exact path="/signup" element={<SignUpView/>}/>
         </Routes>
-        <AnwendungFooter/>
     </Router>
   );
 }
